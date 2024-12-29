@@ -1,0 +1,123 @@
+/* Style global */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header Hero */
+.hero {
+    background: linear-gradient(to bottom, #3a8dff, #001f3f);
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero .container {
+    z-index: 2;
+    position: relative;
+}
+
+.hero .highlight {
+    color: #FFD700;
+}
+
+.hero .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background: #ff9800;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.hero .btn:hover {
+    background: #e58900;
+}
+
+/* Binary animation */
+.animation-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.binary-animation {
+    animation: binary-fall 10s linear infinite;
+    font-family: monospace;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@keyframes binary-fall {
+    0% {
+        top: -100%;
+    }
+    100% {
+        top: 100%;
+    }
+}
+
+/* About Section */
+.about-section, .portfolio-section, .contact-section {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.about-section {
+    background: #f4f4f4;
+}
+
+/* Portfolio Section */
+.portfolio-section {
+    background: white;
+}
+
+/* Contact Section */
+.contact-section {
+    background: #001f3f;
+    color: white;
+}
+
+.contact-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-section ul li {
+    display: inline-block;
+    margin: 10px;
+}
+
+.contact-section ul li a {
+    color: #FFD700;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.contact-section ul li a:hover {
+    color: white;
+}
+
+/* Footer */
+footer {
+    background: #001f3f;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
