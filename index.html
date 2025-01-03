@@ -10,9 +10,9 @@
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #1a1a1d;
-            color: #f5f5f5;
+            font-family: 'Arial', sans-serif;
+            background-color: #1e1e24;
+            color: #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -21,62 +21,57 @@
 
         .container {
             text-align: center;
-            background-color: #2c2c34;
+            background-color: #2b2b38;
             padding: 50px;
-            border-radius: 20px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-            max-width: 700px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            max-width: 600px;
+            width: 100%;
         }
 
         h1 {
             font-size: 2.8rem;
-            color: #ffcc00;
+            color: #f39c12;
             margin-bottom: 20px;
         }
 
         p {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-bottom: 30px;
             color: #dcdcdc;
         }
 
         .timer {
             font-size: 1.6rem;
-            color: #ff5733;
-            margin-top: 15px;
-        }
-
-        .logo {
-            width: 120px;
-            margin-bottom: 25px;
-            border-radius: 50%;
+            color: #e74c3c;
+            margin-top: 20px;
         }
 
         .btn-refresh {
-            padding: 14px 28px;
-            background-color: #ffcc00;
-            color: #1a1a1d;
+            padding: 12px 24px;
+            background-color: #16a085;
+            color: white;
             border: none;
             border-radius: 8px;
             cursor: pointer;
             font-size: 1rem;
             font-weight: bold;
-            transition: background-color 0.4s ease;
+            transition: background-color 0.3s ease;
         }
 
         .btn-refresh:hover {
-            background-color: #ffa500;
+            background-color: #138d75;
         }
 
         .footer-note {
             margin-top: 25px;
             font-size: 1rem;
-            color: #999;
+            color: #b3b3b3;
         }
 
         @media (max-width: 768px) {
             h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
 
             p {
@@ -93,13 +88,11 @@
 
 <body>
     <div class="container">
-        <img src="https://via.placeholder.com/120" alt="Logo du Site" class="logo">
-        <h1>Nous travaillons sur des nouveautés incroyables !</h1>
-        <p>Notre site est temporairement indisponible pour des mises à jour importantes. Nous reviendrons très vite
-            avec une meilleure expérience !</p>
-        <div id="countdown" class="timer">Temps restant estimé : 00:30:00</div>
+        <h1>Site en Maintenance</h1>
+        <p>Nous procédons à des améliorations majeures pour vous offrir la meilleure expérience possible. Le site sera de retour très bientôt !</p>
+        <div id="countdown" class="timer">Temps restant estimé : 7 jours, 00:00:00</div>
         <button class="btn-refresh" onclick="refreshPage()">Recharger la page</button>
-        <p class="footer-note">Merci pour votre compréhension et votre fidélité.</p>
+        <p class="footer-note">Merci pour votre patience et votre fidélité.</p>
     </div>
 
     <script>
@@ -107,18 +100,22 @@
             location.reload();
         }
 
-        // Countdown Timer Script
+        // Timer pour une semaine (7 jours en secondes)
         const timerElement = document.getElementById('countdown');
-        let totalSeconds = 1800; // 30 minutes en secondes
+        let totalSeconds = 7 * 24 * 60 * 60; // 7 jours en secondes
 
         function updateTimer() {
-            const minutes = Math.floor(totalSeconds / 60);
+            const days = Math.floor(totalSeconds / (24 * 60 * 60));
+            const hours = Math.floor((totalSeconds % (24 * 60 * 60)) / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
             const seconds = totalSeconds % 60;
-            timerElement.textContent = `Temps restant estimé : ${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+            timerElement.textContent = `Temps restant estimé : ${days} jours, ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
             if (totalSeconds > 0) {
                 totalSeconds--;
             } else {
-                timerElement.textContent = "La maintenance est presque terminée. Restez connectés !";
+                timerElement.textContent = "La maintenance est terminée. Rechargez la page pour voir les changements.";
             }
         }
 
