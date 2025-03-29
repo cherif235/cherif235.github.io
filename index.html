@@ -111,6 +111,29 @@
             }
         }
         setInterval(updateTimer, 1000);
+        
+        // Empêcher l'accès aux DevTools
+        document.addEventListener("contextmenu", function(event) {
+            event.preventDefault();
+        });
+
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "F12" || 
+                (event.ctrlKey && event.shiftKey && event.key === "I") || 
+                (event.ctrlKey && event.key === "U")) {
+                event.preventDefault();
+            }
+        });
+
+        setInterval(function() {
+            let before = new Date().getTime();
+            debugger;
+            let after = new Date().getTime();
+            if (after - before > 100) {
+                alert("Les outils de développement sont désactivés !");
+                window.location.href = "about:blank";
+            }
+        }, 1000);
     </script>
 </body>
 </html>
