@@ -25,6 +25,15 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
             max-width: 600px;
             width: 90%;
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeIn 1s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         h1 {
             font-size: 2.5rem;
@@ -42,6 +51,7 @@
             font-weight: bold;
             color: #e74c3c;
             margin-top: 20px;
+            transition: opacity 0.5s ease-in-out;
         }
         .btn-refresh {
             padding: 12px 24px;
@@ -52,10 +62,11 @@
             cursor: pointer;
             font-size: 1rem;
             font-weight: bold;
-            transition: background 0.3s ease;
+            transition: background 0.3s ease, transform 0.2s;
         }
         .btn-refresh:hover {
             background: #1f6692;
+            transform: scale(1.05);
         }
         .footer-note {
             margin-top: 25px;
@@ -87,7 +98,11 @@
             const minutes = Math.floor((totalSeconds % 3600) / 60);
             const seconds = totalSeconds % 60;
 
-            timerElement.textContent = `Temps restant estimé : ${days} jours, ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+            timerElement.style.opacity = "0.6";
+            setTimeout(() => {
+                timerElement.textContent = `Temps restant estimé : ${days} jours, ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+                timerElement.style.opacity = "1";
+            }, 300);
 
             if (totalSeconds > 0) {
                 totalSeconds--;
