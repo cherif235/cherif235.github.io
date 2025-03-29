@@ -1,109 +1,85 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Site en Maintenance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Arial', sans-serif;
-            background-color: #1e1e24;
+            font-family: 'Poppins', sans-serif;
+            background-color: #121212;
             color: #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-        }
-
-        .container {
             text-align: center;
-            background-color: #2b2b38;
+        }
+        .container {
+            background: linear-gradient(135deg, #1e1e2f, #2b2b3d);
             padding: 50px;
             border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
             max-width: 600px;
-            width: 100%;
+            width: 90%;
         }
-
         h1 {
-            font-size: 2.8rem;
-            color: #f39c12;
+            font-size: 2.5rem;
+            color: #f1c40f;
             margin-bottom: 20px;
+            font-weight: 600;
         }
-
         p {
             font-size: 1.2rem;
-            margin-bottom: 30px;
             color: #dcdcdc;
+            margin-bottom: 30px;
         }
-
         .timer {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
+            font-weight: bold;
             color: #e74c3c;
             margin-top: 20px;
         }
-
         .btn-refresh {
             padding: 12px 24px;
-            background-color: #16a085;
+            background: #2980b9;
             color: white;
             border: none;
             border-radius: 8px;
             cursor: pointer;
             font-size: 1rem;
             font-weight: bold;
-            transition: background-color 0.3s ease;
+            transition: background 0.3s ease;
         }
-
         .btn-refresh:hover {
-            background-color: #138d75;
+            background: #1f6692;
         }
-
         .footer-note {
             margin-top: 25px;
             font-size: 1rem;
             color: #b3b3b3;
         }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.2rem;
-            }
-
-            p {
-                font-size: 1rem;
-            }
-
-            .btn-refresh {
-                padding: 10px 20px;
-                font-size: 0.9rem;
-            }
-        }
     </style>
 </head>
-
 <body>
     <div class="container">
         <h1>Site en Maintenance</h1>
-        <p>Nous procédons à des améliorations majeures pour vous offrir la meilleure expérience possible. Le site sera de retour très bientôt !</p>
-        <div id="countdown" class="timer">Temps restant estimé : 7 jours, 00:00:00</div>
+        <p>Nous améliorons notre site pour vous offrir la meilleure expérience possible. Nous serons bientôt de retour !</p>
+        <div id="countdown" class="timer">Temps restant estimé : 30 jours, 00:00:00</div>
         <button class="btn-refresh" onclick="refreshPage()">Recharger la page</button>
         <p class="footer-note">Merci pour votre patience et votre fidélité.</p>
         <h4>Tc_Abakar</h4>
     </div>
-
     <script>
         function refreshPage() {
             location.reload();
         }
-
-        // Timer pour une semaine (7 jours en secondes)
+        
         const timerElement = document.getElementById('countdown');
-        let totalSeconds = 7 * 24 * 60 * 60; // 7 jours en secondes
+        let totalSeconds = 30 * 24 * 60 * 60; // 30 jours en secondes
 
         function updateTimer() {
             const days = Math.floor(totalSeconds / (24 * 60 * 60));
@@ -119,9 +95,7 @@
                 timerElement.textContent = "La maintenance est terminée. Rechargez la page pour voir les changements.";
             }
         }
-
         setInterval(updateTimer, 1000);
     </script>
 </body>
-
 </html>
