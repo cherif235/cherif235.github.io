@@ -40,6 +40,11 @@
             color: #f1c40f;
             margin-bottom: 20px;
             font-weight: 600;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
         p {
             font-size: 1.2rem;
@@ -78,11 +83,12 @@
 <body>
     <div class="container">
         <h1>Site en Maintenance</h1>
-        <p>Nous améliorons notre site pour vous offrir la meilleure expérience possible. Nous serons bientôt de retour !</p>
-        <div id="countdown" class="timer">Temps restant estimé : 30 jours, 00:00:00</div>
+        <p>Nous travaillons sur une mise à jour majeure pour améliorer la performance, la sécurité et l'expérience utilisateur. Restez connectés !</p>
+        <p>Nous apportons de nouvelles fonctionnalités excitantes et une interface plus intuitive pour vous offrir le meilleur service.</p>
+        <div id="countdown" class="timer">Temps restant estimé : 10 jours, 00:00:00</div>
         <button class="btn-refresh" onclick="refreshPage()">Recharger la page</button>
         <p class="footer-note">Merci pour votre patience et votre fidélité.</p>
-        <h4>Tc_Abakar</h4>
+        <h4>Abakar Tch</h4>
     </div>
     <script>
         function refreshPage() {
@@ -90,7 +96,7 @@
         }
         
         const timerElement = document.getElementById('countdown');
-        let totalSeconds = 30 * 24 * 60 * 60; // 30 jours en secondes
+        let totalSeconds = 10 * 24 * 60 * 60; // 10 jours en secondes
 
         function updateTimer() {
             const days = Math.floor(totalSeconds / (24 * 60 * 60));
